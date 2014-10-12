@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.5s ease;
+}
+
+header {
+    width: 100%;
+}
+
+header nav {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: #343434;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    padding: 14px 0;
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    font-size: 1.4rem;
+    border: 2px solid #000;
+    border-top-width: 0;
+    border-bottom-width: 4px;
+    transition: all 0.5s ease;
+}
+
+header nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    animation: scroll-progress linear;
+    animation-timeline: scroll(root);
+}
+
+
+@keyframes scroll-progress {
+    0% {
+        width: 20%;
+        background-color: #CC0099;
+    }
+
+    25% {
+        width: 40%;
+        background-color: #0033FF;
+    }
+
+    50% {
+        width: 60%;
+        background-color: #009966;
+    }
+
+    75% {
+        width: 80%;
+        background-color: #33CCCC;
+    }
+
+    100% {
+        width: 100%;
+        background-color: #CC9900;
+    }
+}
+
+header nav a:nth-child(1):hover {
+    background-color: #CC0099;
+}
+
+header nav a:nth-child(2):hover {
+    background-color: #0033FF;
+}
+
+header nav a:nth-child(3):hover {
+    background-color: #009966;
+}
+
+header nav a:nth-child(4):hover {
+    background-color: #33CCCC;
+}
+
+header nav a:nth-child(5):hover {
+    background-color: #CC9900;
+}
+
+div.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    font-size: 4rem;
+}
+
+div.section p {
+    font-size: 1.5rem;
+}
+
+div#fields {
+    background-color: #CC0099;
+    background-image: url(../../img/fields.jpg)
+}
+
+div#stars {
+    background-color: #0033FF;
+    background-image: url(../../img/stars.jpg)
+}
+
+div#forest {
+    background-color: #009966;
+    background-image: url(../../img/forest.jpg)
+}
+
+div#beach {
+    background-color: #33CCCC;
+    background-image: url(../../img/beach.jpg)
+}
+
+div#savanna {
+    background-color: #CC9900;
+    background-image: url(../../img/savanna.jpg)
+}
+
+.hint {
+    position: fixed;
+    top: calc(50vh - 15px);
+    right: 10px;
+    width: 20px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll {
+    font-size: 2rem;
+    color: #fff;
+    font-style: normal;
+}
+
+.hint::after {
+    position: absolute;
+    right: 2.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    bottom: 0.6rem;
+}
+
+@media screen and (max-width: 500px) {
+
+    header nav a {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    div.section p {
+        font-size: 1.25rem;
+    }
+
+    .hint {
+        display: none;
+    }
+
+}

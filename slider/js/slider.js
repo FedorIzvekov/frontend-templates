@@ -2,6 +2,7 @@ var slides = document.querySelector(".slides");
 var buttons = document.querySelectorAll(".nav-button");
 var prev = document.querySelector(".prev");
 var next = document.querySelector(".next");
+var totalSlides = document.querySelectorAll('.slides img').length;
 var currentSlide = 0;
 
 function showSlide(index) {
@@ -17,13 +18,13 @@ function updateButtons(index) {
 }
 
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % 5;
+    currentSlide = (currentSlide + 1) % totalSlides;
     showSlide(currentSlide);
     updateButtons(currentSlide);
 }
 
 function prevSlide() {
-    currentSlide = (currentSlide - 1 + 5) % 5;
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
     updateButtons(currentSlide);
 }

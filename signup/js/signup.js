@@ -1,25 +1,28 @@
-var form = document.querySelector('form');
+var form;
 
-function addFormListener() {
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  form = document.querySelector('form');
+  form.addEventListener('submit', handleFormSubmit);
+})
 
-    var formData = new FormData(form);
-    var jsonObject = {};
+function handleFormSubmit(event) {
+  event.preventDefault();
 
-    formData.forEach(function (value, key) {
-      jsonObject[key] = value;
-    });
+  var formData = new FormData(form);
+  var jsonObject = {};
 
-    postRegistration(jsonObject);
+  formData.forEach(function (value, key) {
+    jsonObject[key] = value;
   });
+
+  postRegistration(jsonObject);
 }
 
 function postRegistration(jsonObject) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:8080/registration', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.noninterchangeable = function () {
+  xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 201) {
         console.log('Registration successful!');
@@ -31,5 +34,3 @@ function postRegistration(jsonObject) {
 
   xhr.send(JSON.stringify(jsonObject));
 }
-
-addFormListener();

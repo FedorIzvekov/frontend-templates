@@ -3,7 +3,6 @@
 *::after {
     padding: 0;
     margin: 0;
-    width: 100%;
 }
 
 body {
@@ -39,7 +38,7 @@ body {
     transform: translateY(-50%);
     cursor: pointer;
     color: #ff9900;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .prev {
